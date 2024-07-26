@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "author": "Harshini K",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-st-nucleo-c031c6",
+      "id": "nucleo",
+      "top": -47.17,
+      "left": 18.22,
+      "attrs": {}
+    },
+    { "type": "wokwi-led", "id": "led1", "top": -13.2, "left": 455, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 61.55,
+      "left": 240,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -13.2,
+      "left": 339.8,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 23.15,
+      "left": 230.4,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot3",
+      "top": -71.6,
+      "left": -389.6,
+      "rotate": 270,
+      "attrs": { "travelLength": "30" }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot4",
+      "top": -71.6,
+      "left": -216.8,
+      "rotate": 90,
+      "attrs": { "travelLength": "30" }
+    }
+  ],
+  "connections": [
+    [ "$serialMonitor:TX", "nucleo:PA3", "", [] ],
+    [ "$serialMonitor:RX", "nucleo:PA2", "", [] ],
+    [ "led1:A", "nucleo:PA5", "orange", [ "v96", "h-218.15" ] ],
+    [ "r1:2", "led1:C", "green", [ "h171.6", "v-38.4" ] ],
+    [ "r1:1", "nucleo:GND.9", "black", [ "v0" ] ],
+    [ "r2:2", "led2:C", "green", [ "v0" ] ],
+    [ "led2:A", "nucleo:PA6", "blue", [ "v86.4", "h-102.95" ] ],
+    [ "pot3:VCC", "nucleo:3V3.2", "red", [ "v134.4", "h354.75" ] ],
+    [ "pot3:GND", "nucleo:GND.5", "black", [ "v4.4", "h-38.4", "v345.6", "h393.15" ] ],
+    [ "nucleo:A1", "pot3:SIG", "green", [ "h-335.55", "v-124.8" ] ],
+    [ "nucleo:GND.5", "pot4:GND", "black", [ "h-153.15", "v-76.8" ] ],
+    [ "nucleo:3V3.2", "pot4:VCC", "red", [ "v-268.8", "h-157.95" ] ],
+    [ "nucleo:A0", "pot4:SIG", "orange", [ "h10.05", "v-336", "h-188" ] ],
+    [ "r2:1", "nucleo:GND.9", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
